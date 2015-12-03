@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_header_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="20dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <cn.bingoogolapple.badgeview.BGABadgeImageView
+        android:id="@+id/imageView_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_account_circle_48dp"
+        app:badge_gravity="rightBottom"
+        app:badge_horizontalMargin="0dp"
+        app:badge_verticalMargin="0dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_nickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sunger"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/imageView_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:src="@mipmap/ic_female_white_18dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/textView_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:paddingRight="15dp"
+            android:singleLine="true"
+            android:text="阿萨萨法萨发说阿萨萨法阿萨萨"
+            android:textColor="@android:color/white"
+            android:textSize="10sp" />
+
+        <ImageView
+            android:id="@+id/icon_edit"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_alignEnd="@+id/textView_description"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/textView_description"
+            android:src="@mipmap/ic_edit_white_18dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_follow"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corners_bg"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:text="关注"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/textView_chat"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/corners_bg"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:text="私信"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout="@layout/preference_item_vertical">
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title="编辑信息">
+        <Preference
+            android:icon="@mipmap/ic_launcher"
+            android:key="@string/preference_user_avatar"
+            android:layout="@layout/preference_item_horizontal_icon"
+            android:title="头像" />
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="@string/preference_screen_name"
+            android:layout="@layout/preference_item_horizontal"
+            android:title="用户名" />
+        <org.sunger.net.ui.widget.RadioGroupPreference
+            android:key="@string/preference_user_gender"
+            android:layout="@layout/preference_item_horizontal"
+            android:title="性别" />
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="@string/preference_user_description"
+            android:layout="@layout/preference_item_vertical"
+            android:title="个性签名" />
+    </PreferenceCategory>
+</PreferenceScreen>

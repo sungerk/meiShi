@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#fffafc</color>
+    <color  name="textColorPrimary">#fffafc</color>
+    <color name="window_background">#FFF5F5F5</color>
+    <color name="progress_background_light">#FFFAFAFA</color>
+
+    <color name="page_view_gap_bg">#ff7e7e7e</color>
+
+
+    <color name="spots_dialog_color">@color/colorPrimary</color>
+
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="grey">#a3afb3</color>
+    <color name="red">#ff4343</color>
+    <color name="green">#ff4ed17e</color>
+    <color name="blue">#3259ff</color>
+
+    <color name="line_color_run_speed_1">#8acb04</color>
+    <color name="line_color_run_speed_3">#4aa657</color>
+    <color name="line_color_run_speed_5">#f3fa07</color>
+    <color name="line_color_run_speed_7">#ffbf05</color>
+    <color name="line_color_run_speed_9">#ff944b</color>
+    <color name="line_color_run_speed_11">#ff6d58</color>
+    <color name="line_color_run_speed_13">#ff2942</color>
+    <color name="line_color_run_speed_15">#e10c05</color>
+    <color name="line_color_run_speed_17">#a5110a</color>
+    <color name="line_color_run_speed_19">#6d0409</color>
+
+    <color name="color_nomorl">#123</color>
+    <color name="color_pressed">#666666</color>
+
+
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="1.5dp"
+    android:clickable="true"
+    android:elevation="5dp"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    app:cardCornerRadius="1dp"
+    app:cardUseCompatPadding="true">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <org.sunger.net.widget.SquareLayout
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <org.sunger.net.ui.widget.ShadowImageView
+                android:id="@+id/imageview_cover_pic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:scaleType="fitXY" />
+        </org.sunger.net.widget.SquareLayout>
+
+        <org.sunger.net.widget.TextImageView
+            android:id="@+id/textView_likes_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView_avatar"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:textSize="12sp"
+            android:text="3333" />
+
+        <cn.bingoogolapple.badgeview.BGABadgeImageView
+            android:id="@+id/imageView_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView4"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_account_circle_gray_48dp"
+            app:badge_gravity="rightBottom"
+            app:badge_horizontalMargin="0dp"
+            app:badge_verticalMargin="0dp" />
+
+        <TextView
+            android:id="@+id/textView_recommend_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textSize="10sp"
+            android:singleLine="true"
+            android:text="傻逼"
+            android:layout_above="@+id/textView_likes_count"
+            android:layout_toRightOf="@+id/imageView_avatar"
+            android:layout_toEndOf="@+id/imageView_avatar" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

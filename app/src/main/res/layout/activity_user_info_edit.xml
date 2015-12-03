@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include layout="@layout/common_toolbar"></include>
+
+    <FrameLayout
+        android:layout_below="@+id/tool_bar"
+        android:id="@+id/view_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"></FrameLayout>
+
+</RelativeLayout>

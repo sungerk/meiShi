@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">魅视</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="gender_female">女</string>
+    <string name="gender_male">男</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_seatch">搜索</string>
+    <string name="action_save">保存</string>
+
+    <string name="video">视频</string>
+    <string name="reposts">转发</string>
+    <string name="following">关注</string>
+    <string name="followers">粉丝</string>
+
+    <string name="title_find_password">找回密码</string>
+    <string name="title_login">登录</string>
+    <string name="title_home">主页</string>
+    <string name="title_edit_user_info">编辑信息</string>
+    <string name="msg_error_refresh">刷新错误...</string>
+    <string name="msg_error_load">加载错误...</string>
+    <string name="msg_error_phone">请输入正确的手机号码</string>
+    <string name="msg_error_password">请输入6到16位数字或字母密码</string>
+    <string name="msg_error_network">数据异常请检测您的网络</string>
+    <string name="msg_welcome">欢迎</string>
+    <string name="msg_get_verify_code">获取验证码</string>
+    <string name="msg_verify_code_point">秒后获取</string>
+    <string name="msg_default_description">一句话介绍一下自己吧，让别人更了解你</string>
+    <string name="msg_no_more_data">没有更多数据...</string>
+    <string name="msg_waitting_loding">请等待，当前正在加载...</string>
+    <string name="msg_now_update">正在修改....</string>
+    <string name="msg_update_success">修改成功....</string>
+    <string name="msg_select_from_album">从相册选择</string>
+    <string name="msg_select_from_camera">拍照</string>
+    <string name="msg_cancel">取消</string>
+
+    <string name="layout_str_msg_login_successs"> 登录成功</string>
+    <string name="layout_str_hint_login"> 登录</string>
+    <string name="layout_str_hint_sign_up">注册</string>
+    <string name="layout_str_hint_phone"> 手机</string>
+    <string name="layout_str_hint_password">密码</string>
+    <string name="layout_str_hint_input_code">请输入验证码</string>
+
+
+    <string name="preference_user_avatar">preference_user_avatar</string>
+    <string name="preference_screen_name">preference_screen_name</string>
+    <string name="preference_user_gender">preference_user_gender</string>
+    <string name="preference_user_description">preference_user_description</string>
+
+
+</resources>

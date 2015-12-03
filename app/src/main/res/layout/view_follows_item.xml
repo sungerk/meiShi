@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1.5dp"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
+    android:layout_marginTop="1.5dp"
+    android:descendantFocusability="blocksDescendants"
+    android:elevation="2dp"
+    android:focusable="true"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    app:cardCornerRadius="1dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <cn.bingoogolapple.badgeview.BGABadgeImageView
+            android:id="@+id/imageView_avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_account_circle_gray_48dp"
+            app:badge_gravity="rightBottom"
+            app:badge_horizontalMargin="0dp"
+            app:badge_verticalMargin="0dp" />
+
+        <TextView
+            android:id="@+id/textView_screen_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView_navigation_right"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/imageView_avatar"
+            android:layout_toRightOf="@+id/imageView_avatar"
+            android:text="Sunger" />
+
+        <ImageView
+            android:id="@+id/imageView_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView_screen_name"
+            android:layout_toEndOf="@+id/textView_screen_name"
+            android:layout_toRightOf="@+id/textView_screen_name"
+            android:src="@mipmap/ic_female_red_18dp" />
+
+        <ImageView
+            android:id="@+id/imageView_navigation_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_navigation_right_36dp" />
+
+        <TextView
+            android:id="@+id/textView_followed_by_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView_avatar"
+            android:layout_alignLeft="@+id/textView_screen_name"
+            android:layout_alignStart="@+id/textView_screen_name"
+            android:layout_marginBottom="5dp"
+            android:text="2015-16-23"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/textView_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="我们相互关注"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button_follow"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/colorPrimary"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            android:text="关注" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

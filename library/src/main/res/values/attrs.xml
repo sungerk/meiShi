@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="DragTopLayout">
+
+        <!--Set the collapse panel offset-->
+        <attr name="dtlCollapseOffset" format="dimension"/>
+
+        <!--Set enable drag over.The default value is true.-->
+        <attr name="dtlOverDrag" format="boolean"/>
+
+        <!--Open the top view after the drag layout is created. The default value is false.-->
+        <attr name="dtlOpen" format="boolean"/>
+
+        <!-- The id of the top view (which will be dragged) -->
+        <attr name="dtlTopView" format="reference" />
+        <!-- The content view which will be dragged together with "dtlTopView" -->
+        <attr name="dtlDragContentView" format="reference" />
+
+        <!-- True the top view can be dragged -->
+        <attr name="dtlCaptureTop" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="FillImageView">
+        <attr name="fiv_normalColor" format="color"/>
+        <attr name="fiv_fillColor" format="color" />
+        <attr name="fiv_drawable" format="reference" />
+        <attr name="fiv_from" format="enum">
+            <enum name="left" value="1" />
+            <enum name="top" value="2" />
+            <enum name="right" value="4" />
+            <enum name="bottom" value="8" />
+        </attr>
+        <attr name="fiv_percent" format="float" />
+    </declare-styleable>
+</resources>

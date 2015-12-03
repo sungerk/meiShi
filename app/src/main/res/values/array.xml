@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="selectImage">
+        <item>@string/msg_select_from_album</item>
+        <item>@string/msg_select_from_camera</item>
+        <item>@string/msg_cancel</item>
+    </string-array>
+
+</resources>
