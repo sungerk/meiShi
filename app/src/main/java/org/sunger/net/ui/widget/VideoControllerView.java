@@ -12,18 +12,17 @@ import android.widget.ImageButton;
 
 import com.gc.materialdesign.views.ProgressWheel;
 import com.gc.materialdesign.views.Slider;
+import com.google.android.exoplayer.ExoPlayer;
 
 import org.sunger.net.utils.DataTypeUtils;
 import org.sunger.net.utils.MediaPlayerUtils;
 
-import io.vov.vitamio.MediaPlayer;
-import io.vov.vitamio.widget.VideoView;
 import sunger.org.demo.R;
 
 /**
  * Created by sunger on 15/11/7.
  */
-public class VideoControllerView extends FrameLayout implements View.OnTouchListener, Slider.OnValueChangedListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener {
+public class VideoControllerView extends FrameLayout implements View.OnTouchListener, Slider.OnValueChangedListener, VideoView.OnBufferingUpdateListener, VideoView.OnPreparedListener, VideoView.OnCompletionListener {
     private static final long delayMillis = 1500;
     private VideoView mVideoView;
     private ProgressWheel mProgressWheel;
@@ -146,7 +145,7 @@ public class VideoControllerView extends FrameLayout implements View.OnTouchList
      */
 
     public void release() {
-        mVideoView.stopPlayback();
+        mVideoView.release();
     }
 
 
@@ -155,10 +154,10 @@ public class VideoControllerView extends FrameLayout implements View.OnTouchList
     }
 
     @Override
-    public void onPrepared(MediaPlayer mediaPlayer) {
+    public void onPrepared(ExoPlayer exoPlayer) {
         slider.setMin(0);
-        slider.setMax(DataTypeUtils.toInt(mediaPlayer.getDuration()));
-        mediaPlayer.setPlaybackSpeed(1.0f);
+        slider.setMax(DataTypeUtils.toInt(exoPlayer.getDuration()));
+        // mediaPlayer.setPlaybackSpeed(1.0f);
     }
 
     @Override
@@ -170,7 +169,7 @@ public class VideoControllerView extends FrameLayout implements View.OnTouchList
     }
 
     @Override
-    public void onBufferingUpdate(MediaPlayer mp, int percent) {
+    public void onBufferingUpdate(ExoPlayer exoPlayer, int percent) {
         //视频暂停中不显示缓冲进度
         if (isVideoPause())
             return;
@@ -184,7 +183,7 @@ public class VideoControllerView extends FrameLayout implements View.OnTouchList
 
     @TargetApi(21)
     @Override
-    public void onCompletion(MediaPlayer mp) {
+    public void onCompletion(ExoPlayer player) {
         viewPlay.setImageDrawable(context.getResources().getDrawable(R.mipmap.ic_replay_white_48dp, null));
         viewPlay.setVisibility(VISIBLE);
         viewPlay.setOnClickListener(new OnClickListener() {

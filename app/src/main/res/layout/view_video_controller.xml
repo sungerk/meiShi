@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_below="@+id/tool_bar">
 
-    <io.vov.vitamio.widget.VideoView
+    <org.sunger.net.ui.widget.VideoView
         android:id="@+id/videoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
