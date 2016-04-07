@@ -155,8 +155,9 @@ public class VideoView extends TextureView implements TextureView.SurfaceTexture
                 AudioCapabilities.getCapabilities(getContext()), AudioManager.STREAM_MUSIC);
         player.prepare(videoRenderer, audioRenderer);
         player.setPlayWhenReady(true);
-        player.sendMessage(videoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE, new Surface(getSurfaceTexture()));
-
+        if(isAvailable()) {
+            player.sendMessage(videoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE, new Surface(getSurfaceTexture()));
+        }
     }
 
     public void setVideoPath(String videoPath) {
@@ -184,8 +185,10 @@ public class VideoView extends TextureView implements TextureView.SurfaceTexture
     }
 
 
+
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+
         if (videoRenderer!=null)
          player.sendMessage(videoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE, new Surface(surface));
     }
