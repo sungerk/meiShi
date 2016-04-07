@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.WindowManager;
 
 import org.sunger.net.entity.CommentEntity;
@@ -19,13 +17,10 @@ import org.sunger.net.presenter.impl.PlayVideoPresenterImpl;
 import org.sunger.net.support.recyclerview.OnRecycleViewScrollListener;
 import org.sunger.net.support.recyclerview.TopScrollListener;
 import org.sunger.net.ui.adapter.CommentsAdapter;
-import org.sunger.net.utils.DensityUtil;
-import org.sunger.net.utils.DeviceUtils;
 import org.sunger.net.view.PlayVideoView;
 
 import java.util.List;
 
-import io.vov.vitamio.LibsChecker;
 import sunger.org.demo.R;
 
 public class VideoPlayActivity extends BaseCompatActivity implements PlayVideoView, SwipeRefreshLayout.OnRefreshListener, CommentsAdapter.OnCommentItemClickListener {
@@ -47,14 +42,8 @@ public class VideoPlayActivity extends BaseCompatActivity implements PlayVideoVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (!LibsChecker.checkVitamioLibs(this))
-            return;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_video_play);
-        View view = findView(R.id.appbar);
-        int width = DeviceUtils.getScreenWidth(this) + DensityUtil.dip2px(this, 110) + getActionBarSize();
-        CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(CoordinatorLayout.LayoutParams.MATCH_PARENT, width);
-        view.setLayoutParams(params);
         medias_id = getIntent().getIntExtra(MEDIAS_ID_KEY, -1);
         mPresenter = new PlayVideoPresenterImpl(this);
         mPresenter.getMedia(medias_id);
@@ -63,9 +52,9 @@ public class VideoPlayActivity extends BaseCompatActivity implements PlayVideoVi
     }
 
     private void initView() {
-        setUpCommonBackTooblBar(R.id.tool_bar, " ");
+        setUpCommonBackTooblBar(R.id.tool_bar, "视频播放");
         CollapsingToolbarLayout collapsing_toolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsing_toolbar.setTitle(" ");
+        collapsing_toolbar.setTitleEnabled(false);
         collapsing_toolbar.setExpandedTitleColor(Color.TRANSPARENT);
         mVideoPlayHeader = new VideoPlayHeader(this, findViewById(R.id.video_header));
         initRecyclerView();

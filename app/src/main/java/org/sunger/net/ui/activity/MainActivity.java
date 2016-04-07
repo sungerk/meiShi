@@ -1,5 +1,6 @@
 package org.sunger.net.ui.activity;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -11,12 +12,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tbruyelle.rxpermissions.RxPermissions;
+
 import org.sunger.net.entity.CategoryEntity;
 import org.sunger.net.presenter.CategoryPresenter;
 import org.sunger.net.presenter.impl.CategoryPresenterImpl;
 import org.sunger.net.ui.adapter.FragmentAdapter;
 import org.sunger.net.view.CategoryView;
 
+import rx.functions.Action1;
 import sunger.org.demo.R;
 
 public class MainActivity extends BaseCompatActivity
@@ -34,7 +38,12 @@ public class MainActivity extends BaseCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        checkNetWork();
+        initView();
+        requestPermission();
+    }
+
+
+    private void initView() {
         mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         mToolbar.setTitle(R.string.app_name);
         setSupportActionBar(mToolbar);
@@ -43,19 +52,30 @@ public class MainActivity extends BaseCompatActivity
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.setDrawerListener(toggle);
+        mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        intNavigationView();
-        mAdapter = new FragmentAdapter(getSupportFragmentManager());
-        mPresenter = new CategoryPresenterImpl(this);
-        mPresenter.getCategory();
-    }
-
-    private void intNavigationView() {
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
         mMainNavigationHeader = new MainNavigationHeader(this, mNavigationView);
         mMainNavigationHeader.bindData();
+        mAdapter = new FragmentAdapter(getSupportFragmentManager());
+    }
+
+
+    private void requestPermission() {
+        RxPermissions.getInstance(this)
+                .request(Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_PHONE_STATE).subscribe(new Action1<Boolean>() {
+            @Override
+            public void call(Boolean aBoolean) {
+                if (aBoolean) {
+                    checkNetWork();
+                    mPresenter = new CategoryPresenterImpl(MainActivity.this);
+                    mPresenter.getCategory();
+                }
+            }
+        });
+
     }
 
 
@@ -132,7 +152,7 @@ public class MainActivity extends BaseCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        mMainNavigationHeader.bindData();
+//        mMainNavigationHeader.bindData();
     }
 
 

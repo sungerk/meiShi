@@ -90,25 +90,19 @@ public class VideoView extends TextureView implements TextureView.SurfaceTexture
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
 
                 switch (playbackState) {
-
-
                     case ExoPlayer.STATE_ENDED:
                         if (onCompletionListener != null)
                             onCompletionListener.onCompletion(player);
-
                         break;
                     case ExoPlayer.STATE_BUFFERING:
                         if (onBufferingUpdateListener != null)
                             onBufferingUpdateListener.onBufferingUpdate(player, player.getBufferedPercentage());
                         break;
-
                     case ExoPlayer.STATE_READY:
                         if (onPreparedListener != null)
                             onPreparedListener.onPrepared(player);
                         break;
                 }
-
-
             }
 
             @Override
