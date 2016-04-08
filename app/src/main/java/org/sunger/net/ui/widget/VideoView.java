@@ -29,11 +29,13 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
+import android.view.ViewGroup;
 
 import com.google.android.exoplayer.ExoPlaybackException;
 import com.google.android.exoplayer.ExoPlayer;
 import com.google.android.exoplayer.MediaCodecAudioTrackRenderer;
 import com.google.android.exoplayer.MediaCodecSelector;
+import com.google.android.exoplayer.MediaCodecTrackRenderer;
 import com.google.android.exoplayer.MediaCodecVideoTrackRenderer;
 import com.google.android.exoplayer.SampleSource;
 import com.google.android.exoplayer.audio.AudioCapabilities;
@@ -47,7 +49,7 @@ import com.google.android.exoplayer.upstream.DefaultUriDataSource;
 /**
  * Created by sungerk on 2016/4/6.
  */
-public class VideoView extends TextureView implements TextureView.SurfaceTextureListener {
+public class VideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaCodecVideoTrackRenderer.EventListener {
     private static final int BUFFER_SEGMENT_SIZE = 64 * 1024;
     private static final int BUFFER_SEGMENT_COUNT = 256;
     private MediaCodecVideoTrackRenderer videoRenderer;
@@ -117,6 +119,7 @@ public class VideoView extends TextureView implements TextureView.SurfaceTexture
                 }
             }
         });
+
         setSurfaceTextureListener(this);
     }
 
@@ -143,13 +146,13 @@ public class VideoView extends TextureView implements TextureView.SurfaceTexture
         SampleSource sampleSource = createSource();
         videoRenderer = new MediaCodecVideoTrackRenderer(getContext(),
                 sampleSource, MediaCodecSelector.DEFAULT, MediaCodec.VIDEO_SCALING_MODE_SCALE_TO_FIT, 5000,
-                handler, null, 50);
+                handler, this, 50);
         audioRenderer = new MediaCodecAudioTrackRenderer(sampleSource,
                 MediaCodecSelector.DEFAULT, null, true, handler, null,
                 AudioCapabilities.getCapabilities(getContext()), AudioManager.STREAM_MUSIC);
         player.prepare(videoRenderer, audioRenderer);
         player.setPlayWhenReady(true);
-        if(isAvailable()) {
+        if (isAvailable()) {
             player.sendMessage(videoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE, new Surface(getSurfaceTexture()));
         }
     }
@@ -160,7 +163,6 @@ public class VideoView extends TextureView implements TextureView.SurfaceTexture
         }
         mUri = Uri.parse(videoPath);
     }
-
 
     public void stop() {
         player.stop();
@@ -178,13 +180,54 @@ public class VideoView extends TextureView implements TextureView.SurfaceTexture
         player.seekTo(positionMs);
     }
 
+    /**
+     * reset the LayoutParams
+     * @param width
+     * @param height
+     */
+    private void invalidateVideoSize(int width, int height) {
+        ViewGroup.LayoutParams params = getLayoutParams();
+        params.height=getWidth()*height/width;
+        setLayoutParams(params);
+    }
+
+
+    @Override
+    public void onVideoSizeChanged(int width, int height, int unappliedRotationDegrees, float pixelWidthHeightRatio) {
+        invalidateVideoSize(width, height);
+    }
+
+
+    @Override
+    public void onDroppedFrames(int count, long elapsed) {
+    }
+
+    @Override
+    public void onDrawnToSurface(Surface surface) {
+
+    }
+
+    @Override
+    public void onDecoderInitializationError(MediaCodecTrackRenderer.DecoderInitializationException e) {
+
+    }
+
+    @Override
+    public void onCryptoError(MediaCodec.CryptoException e) {
+
+    }
+
+    @Override
+    public void onDecoderInitialized(String decoderName, long elapsedRealtimeMs, long initializationDurationMs) {
+
+    }
 
 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
 
-        if (videoRenderer!=null)
-         player.sendMessage(videoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE, new Surface(surface));
+        if (videoRenderer != null)
+            player.sendMessage(videoRenderer, MediaCodecVideoTrackRenderer.MSG_SET_SURFACE, new Surface(surface));
     }
 
     @Override
@@ -217,6 +260,7 @@ public class VideoView extends TextureView implements TextureView.SurfaceTexture
     public void setOnBufferingUpdateListener(OnBufferingUpdateListener listener) {
         this.onBufferingUpdateListener = listener;
     }
+
 
     public interface OnPreparedListener {
         void onPrepared(ExoPlayer player);

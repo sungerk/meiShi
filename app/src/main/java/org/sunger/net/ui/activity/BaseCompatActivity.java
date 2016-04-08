@@ -1,6 +1,5 @@
 package org.sunger.net.ui.activity;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -8,15 +7,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.PopupWindow;
 
 import com.gc.materialdesign.widgets.Dialog;
+import com.jaeger.library.StatusBarUtil;
 
 import org.sunger.net.support.okhttp.OkHttpClientManager;
 import org.sunger.net.utils.NetWorkUtils;
-import org.sunger.net.utils.SystemBarTintManager;
 import org.sunger.net.utils.UiHelper;
 import org.sunger.net.widget.SolidToast;
 
@@ -32,21 +29,11 @@ public class BaseCompatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStateBarColor(R.color.colorPrimaryDark);
+
     }
 
     protected void setStateBarColor(int resId) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window win = getWindow();
-            WindowManager.LayoutParams winParams = win.getAttributes();
-            final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-            winParams.flags |= bits;
-            win.setAttributes(winParams);
-            SystemBarTintManager tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setStatusBarTintResource(resId);
-            tintManager.setStatusBarDarkMode(true, this);
-        }
+        StatusBarUtil.setColor(this,getResources().getColor(resId));
     }
 
 

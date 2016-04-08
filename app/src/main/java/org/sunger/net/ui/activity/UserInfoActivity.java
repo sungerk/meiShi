@@ -33,6 +33,7 @@ public class UserInfoActivity extends BaseCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
+        setStateBarColor(R.color.colorPrimaryDark);
         mUserEntity = App.getInstance().getOauthUserEntity().getUser();
         video = mUserEntity.getVideos_count() + "\n" + getString(R.string.video);
         reposts = mUserEntity.getReposts_count() + "\n" + getString(R.string.reposts);

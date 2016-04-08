@@ -36,6 +36,7 @@ public class ResetPasswordActivity extends BaseCompatActivity implements ResetPa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        setStateBarColor(R.color.colorPrimaryDark);
         setUpCommonBackTooblBar(R.id.tool_bar, R.string.title_find_password);
         mPresenter = new ResetPasswordPresenterImpl(this);
         mTextInputLayoutPhone = findView(R.id.textInputLayout_phone);

@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.jaeger.library.StatusBarUtil;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
 import org.sunger.net.entity.CategoryEntity;
@@ -38,6 +39,7 @@ public class MainActivity extends BaseCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setStateBarColor(R.color.colorPrimaryDark);
         initView();
         requestPermission();
     }
@@ -50,6 +52,8 @@ public class MainActivity extends BaseCompatActivity
         mTabLayout = (TabLayout) this.findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) this.findViewById(R.id.view_pager);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        StatusBarUtil.setColorForDrawerLayout(MainActivity.this, mDrawerLayout, getResources().getColor(R
+                .color.colorPrimaryDark));
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);

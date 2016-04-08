@@ -30,6 +30,7 @@ public class LoginActivity extends BaseCompatActivity implements LoginView, View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setStateBarColor(R.color.colorPrimaryDark);
         setUpCommonBackTooblBar(R.id.tool_bar, R.string.title_login);
         mButtonSign = (ActionProcessButton) findViewById(R.id.button_sign);
         mButtonSign.setOnClickListener(this);

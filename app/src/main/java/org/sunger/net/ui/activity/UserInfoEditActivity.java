@@ -20,6 +20,7 @@ public class UserInfoEditActivity extends BaseCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info_edit);
+        setStateBarColor(R.color.colorPrimaryDark);
         setUpCommonBackTooblBar(R.id.tool_bar, R.string.title_edit_user_info);
         if (savedInstanceState == null) {
             replaceFragment(R.id.view_holder, mUserInfoEditFragment = UserInfoEditFragment.newInatance());

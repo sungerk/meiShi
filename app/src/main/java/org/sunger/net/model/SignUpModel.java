@@ -21,7 +21,7 @@ public class SignUpModel {
      * @param callback
      * @return
      */
-    public OkHttpRequest getVerifySMS(String phone, String password, ResultCallback<JsonElement> callback) {
+    public OkHttpRequest getVerifySMS(String phone, String password, ResultCallback<String> callback) {
         ParamsMap paramsMap = new ParamsMap();
         paramsMap.put(AppConstants.ParamKey.PHONE_KEY, phone);
         paramsMap.put(AppConstants.ParamKey.PASSWORD_KEY, password);

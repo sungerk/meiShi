@@ -36,6 +36,7 @@ public class SignUpActivity extends BaseCompatActivity implements SignUpView, Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         mPresenter = new SignUpPresenterImpl(this);
+        setStateBarColor(R.color.colorPrimaryDark);
         mTextInputLayoutPhone = findView(R.id.textInputLayout_phone);
         mTextInputLayoutPassword = findView(R.id.textInputLayout_password);
         mEditTextVerifyCode = findView(R.id.editText_verify_code);

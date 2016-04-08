@@ -42,19 +42,16 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     @Override
     public void getVerifySMS(String phone, String pwd) {
-
-        model.getVerifySMS(phone, pwd, new ResultCallback<JsonElement>() {
+        model.getVerifySMS(phone, pwd, new ResultCallback<String>() {
             @Override
             public void onError(Request request, Exception e) {
                 view.showVerifyError(e.getMessage());
             }
 
             @Override
-            public void onResponse(JsonElement response) {
-                if (response.getAsBoolean()) {
+            public void onResponse(String response) {
+                if (response.equalsIgnoreCase("true")) {
                     view.showVerifySuccerss();
-
-
                 }
             }
         });

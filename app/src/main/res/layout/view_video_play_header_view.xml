@@ -158,12 +158,12 @@
                     android:id="@+id/imageView_repeat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="35dp"
                     android:layout_marginStart="35dp"
-                    android:src="@mipmap/ic_repeat_white_18dp"
-                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/view2"
                     android:layout_toRightOf="@+id/view2"
-                    android:layout_toEndOf="@+id/view2" />
+                    android:src="@mipmap/ic_repeat_white_18dp" />
 
                 <TextView
                     android:id="@+id/textView_repeat"

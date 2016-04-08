@@ -42,6 +42,7 @@ public class WebViewActivity extends BaseCompatActivity implements SwipeRefreshL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
+        setStateBarColor(R.color.colorPrimaryDark);
         initToolBar();
         initWebView();
         swipeRefreshLayout = findView(R.id.swipeRefreshLayout);

@@ -60,6 +60,7 @@ dependencies {
     compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
     compile 'com.google.android.exoplayer:exoplayer:r1.5.6'
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    compile 'com.jaeger.statusbaruitl:library:1.0.0'
     compile project(':MaterialDesign')
     compile project(':library')
 }
