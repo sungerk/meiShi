@@ -28,7 +28,7 @@ public abstract class MediasFragment extends LoadMoreRecyclerFragemnt implements
         recyclerView = getRecyclerView();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mAdapter = new MediasAdapter(getActivity());
+        mAdapter = new MediasAdapter();
         mAdapter.setHasMoreData(true);
         mAdapter.setOnItemClickListener(this);
         recyclerView.setAdapter(mAdapter);

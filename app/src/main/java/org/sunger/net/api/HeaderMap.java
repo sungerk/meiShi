@@ -1,7 +1,7 @@
 package org.sunger.net.api;
 
 import org.sunger.net.app.App;
-import org.sunger.net.app.AppConstants;
+import org.sunger.net.config.AppConstants;
 import org.sunger.net.entity.OauthUserEntity;
 
 import java.util.HashMap;

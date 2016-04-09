@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorPrimary"
@@ -10,15 +11,22 @@
     android:paddingTop="50dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <cn.bingoogolapple.badgeview.BGABadgeImageView
+    <org.sunger.net.ui.widget.AvatarView
         android:id="@+id/imageView_avatar"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         app:badge_gravity="rightBottom"
         app:badge_horizontalMargin="0dp"
         app:badge_verticalMargin="0dp"
+        fresco:actualImageScaleType="focusCrop"
+        fresco:fadeDuration="300"
         android:layout_gravity="center_horizontal"
-        android:src="@mipmap/ic_account_circle_48dp" />
+        fresco:placeholderImage="@mipmap/ic_account_circle_48dp"
+        fresco:placeholderImageScaleType="fitCenter"
+        fresco:roundedCornerRadius="50dp"/>
 
     <TextView
         android:id="@+id/textView_nickName"

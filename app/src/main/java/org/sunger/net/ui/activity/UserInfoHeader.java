@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import org.sunger.net.app.AppUtils;
 import org.sunger.net.entity.UserEntity;
+import org.sunger.net.ui.widget.AvatarView;
 
-import cn.bingoogolapple.badgeview.BGABadgeImageView;
 import sunger.org.demo.R;
 
 /**
@@ -19,7 +19,7 @@ import sunger.org.demo.R;
 public class UserInfoHeader implements View.OnClickListener {
     protected Activity mActivity;
     protected View mLayoutButton;
-    protected BGABadgeImageView mImageViewAvatar;
+    protected AvatarView mImageViewAvatar;
     protected ImageView mImageViewGender;
     protected ImageView mImageViewEdit;
     protected TextView mTextViewScreenName;
@@ -30,7 +30,7 @@ public class UserInfoHeader implements View.OnClickListener {
     public UserInfoHeader(Activity context, View view) {
         this.mActivity = context;
         mLayoutButton = view.findViewById(R.id.layout_button);
-        mImageViewAvatar = (BGABadgeImageView) view.findViewById(R.id.imageView_avatar);
+        mImageViewAvatar = (AvatarView) view.findViewById(R.id.imageView_avatar);
         mTextViewScreenName = (TextView) view.findViewById(R.id.textView_nickName);
         mTextViewFollow = (TextView) view.findViewById(R.id.textView_follow);
         mTextViewChat = (TextView) view.findViewById(R.id.textView_chat);
@@ -55,7 +55,7 @@ public class UserInfoHeader implements View.OnClickListener {
         }
         mTextViewDescription.setOnClickListener(this);
         mImageViewEdit.setOnClickListener(this);
-        AppUtils.loadBigUserAvata(mActivity,entity, mImageViewAvatar);
+        AppUtils.loadBigUserAvata(entity, mImageViewAvatar);
     }
 
     @Override

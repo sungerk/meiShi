@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="1.5dp"
@@ -19,18 +20,21 @@
         android:layout_height="wrap_content"
         android:padding="5dp">
 
-        <cn.bingoogolapple.badgeview.BGABadgeImageView
+        <org.sunger.net.ui.widget.AvatarView
             android:id="@+id/imageView_avatar"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:scaleType="fitXY"
-            android:src="@mipmap/ic_account_circle_gray_48dp"
             app:badge_gravity="rightBottom"
             app:badge_horizontalMargin="0dp"
-            app:badge_verticalMargin="0dp" />
+            app:badge_verticalMargin="0dp"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:fadeDuration="300"
+            fresco:placeholderImage="@mipmap/ic_account_circle_gray_48dp"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:roundedCornerRadius="50dp" />
 
         <TextView
             android:id="@+id/textView_screen_name"
@@ -58,10 +62,10 @@
             android:id="@+id/imageView_navigation_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_navigation_right_36dp"
-            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_navigation_right_36dp" />
 
 
     </RelativeLayout>

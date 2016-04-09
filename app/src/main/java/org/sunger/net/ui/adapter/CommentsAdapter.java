@@ -1,6 +1,6 @@
 package org.sunger.net.ui.adapter;
 
-import android.app.Activity;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,23 +12,23 @@ import android.widget.TextView;
 
 import org.sunger.net.app.AppUtils;
 import org.sunger.net.entity.CommentEntity;
+import org.sunger.net.ui.widget.AvatarView;
 import org.sunger.net.ui.widget.comment.CommentTextView;
 import org.sunger.net.ui.widget.refresh.BaseLoadMoreRecyclerAdapter;
 import org.sunger.net.utils.DateUtils;
 
-import cn.bingoogolapple.badgeview.BGABadgeImageView;
 import sunger.org.demo.R;
 
 /**
  * Created by sunger on 15/11/8.
  */
 public class CommentsAdapter extends BaseLoadMoreRecyclerAdapter<CommentEntity, CommentsAdapter.ViewHolder> {
-    private Activity mActivity;
+    private Context mContext;
     private OnCommentItemClickListener onCommentItemClickListener;
 
 
-    public CommentsAdapter(Activity activity) {
-        this.mActivity = activity;
+    public CommentsAdapter(Context mContext) {
+        this.mContext = mContext;
     }
 
     @Override
@@ -55,8 +55,8 @@ public class CommentsAdapter extends BaseLoadMoreRecyclerAdapter<CommentEntity, 
         } else {
             holder.mImageViewThumbUp.setImageResource(R.mipmap.ic_thumb_up_gray_18dp);
         }
-        AppUtils.loadSmallUserAvata(mActivity,entity.getUser(), holder.mImageViewAvatar);
-        holder.view.setOnClickListener(new View.OnClickListener() {
+        AppUtils.loadSmallUserAvata(entity.getUser(), holder.mImageViewAvatar);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onCommentItemClickListener.onItemClick(entity);
@@ -71,7 +71,7 @@ public class CommentsAdapter extends BaseLoadMoreRecyclerAdapter<CommentEntity, 
         holder.mImageViewThumbUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(mActivity, R.anim.thumb_up_scale);
+                Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.thumb_up_scale);
                 if (entity.getLiked()) {
                     entity.setLiked(false);
                     entity.setLiked_count(entity.getLiked_count() - 1);
@@ -122,19 +122,17 @@ public class CommentsAdapter extends BaseLoadMoreRecyclerAdapter<CommentEntity, 
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final BGABadgeImageView mImageViewAvatar;
+        private final AvatarView mImageViewAvatar;
         private final TextView mTextViewScreenName;
         private final TextView mTextViewCreatedAt;
         private final CommentTextView mTextViewContent;
         private final TextView mTextViewLikedCount;
         private final ImageView mImageViewThumbUp;
-        private final View view;
 
         public ViewHolder(View view) {
             super(view);
-            this.view = view;
             mImageViewThumbUp = (ImageView) view.findViewById(R.id.imageView_thumb_up);
-            mImageViewAvatar = (BGABadgeImageView) view.findViewById(R.id.imageView_avatar);
+            mImageViewAvatar = (AvatarView) view.findViewById(R.id.imageView_avatar);
             mTextViewScreenName = (TextView) view.findViewById(R.id.textView_screen_name);
             mTextViewCreatedAt = (TextView) view.findViewById(R.id.textView_created_at);
             mTextViewContent = (CommentTextView) view.findViewById(R.id.textView_content);

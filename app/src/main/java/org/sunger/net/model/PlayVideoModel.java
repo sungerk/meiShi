@@ -5,7 +5,7 @@ import com.google.gson.JsonElement;
 import org.sunger.net.api.ApiClient;
 import org.sunger.net.api.HeaderMap;
 import org.sunger.net.api.ParamsMap;
-import org.sunger.net.app.AppConstants;
+import org.sunger.net.config.AppConstants;
 import org.sunger.net.entity.CommentEntity;
 import org.sunger.net.entity.MediaEntity;
 import org.sunger.net.support.okhttp.callback.ResultCallback;

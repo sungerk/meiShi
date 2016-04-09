@@ -11,15 +11,15 @@ import org.sunger.net.app.App;
 import org.sunger.net.app.AppUtils;
 import org.sunger.net.entity.OauthUserEntity;
 import org.sunger.net.entity.SimpleUserEntity;
+import org.sunger.net.ui.widget.AvatarView;
 
-import cn.bingoogolapple.badgeview.BGABadgeImageView;
 import sunger.org.demo.R;
 
 /**
  * Created by sunger on 15/11/21.
  */
 public class MainNavigationHeader implements View.OnClickListener {
-    private BGABadgeImageView mImageViewAvatar;
+    private AvatarView mImageViewAvatar;
     private TextView mTextViewNickName;
     private View mRelativeLayout1;
     private View mRelativeLayout2;
@@ -40,7 +40,7 @@ public class MainNavigationHeader implements View.OnClickListener {
         mTextViewRepostsCount = (TextView) headView.findViewById(R.id.textView_reposts_count);
         mTextViewFriendsCount = (TextView) headView.findViewById(R.id.textView_friends_count);
         mTextViewFollowersCount = (TextView) headView.findViewById(R.id.textView_followers_count);
-        mImageViewAvatar = (BGABadgeImageView) headView.findViewById(R.id.imageView_avatar);
+        mImageViewAvatar = (AvatarView) headView.findViewById(R.id.imageView_avatar);
         mTextViewNickName = (TextView) headView.findViewById(R.id.textView_nickName);
     }
 
@@ -59,7 +59,7 @@ public class MainNavigationHeader implements View.OnClickListener {
             mTextViewFollowersCount.setText(entity.getFollowers_count() + "\n" + mActivity.getString(R.string.following));
             if (TextUtils.isEmpty(entity.getAvatar()))
                 return;
-            AppUtils.loadBigUserAvata(mActivity, entity, mImageViewAvatar);
+            AppUtils.loadBigUserAvata( entity, mImageViewAvatar);
         } else {
             mImageViewAvatar.setOnClickListener(null);
             mRelativeLayout1.setVisibility(View.VISIBLE);

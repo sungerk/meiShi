@@ -14,6 +14,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import org.sunger.net.entity.CommentEntity;
 import org.sunger.net.entity.MediaEntity;
 import org.sunger.net.presenter.PlayVideoPresenter;
@@ -47,6 +49,7 @@ public class VideoPlayActivity extends BaseCompatActivity implements PlayVideoVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        Fresco.initialize(this);
         setContentView(R.layout.activity_video_play);
         setStateBarColor(R.color.colorPrimaryDark);
         medias_id = getIntent().getIntExtra(MEDIAS_ID_KEY, -1);

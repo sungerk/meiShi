@@ -246,11 +246,12 @@ public class FileUtils {
         return new File(parentDir).getPath();
     }
 
-    public static void createDirs(String path) {
+    public static File createDirs(String path) {
         File file = new File(path);
         if (isFileExists(file))
-            return;
+            return file;
         file.mkdirs();
+        return  new File(path);
     }
 
     public static void deleteFile(String fileName) {

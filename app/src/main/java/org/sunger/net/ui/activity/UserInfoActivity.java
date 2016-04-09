@@ -6,6 +6,8 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import org.sunger.net.app.App;
 import org.sunger.net.entity.UserEntity;
 import org.sunger.net.ui.adapter.CommonTabAdapter;
@@ -32,6 +34,7 @@ public class UserInfoActivity extends BaseCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(this);
         setContentView(R.layout.activity_user_info);
         setStateBarColor(R.color.colorPrimaryDark);
         mUserEntity = App.getInstance().getOauthUserEntity().getUser();

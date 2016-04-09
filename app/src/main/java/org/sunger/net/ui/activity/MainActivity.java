@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.jaeger.library.StatusBarUtil;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
@@ -38,6 +39,7 @@ public class MainActivity extends BaseCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(this);
         setContentView(R.layout.activity_main);
         setStateBarColor(R.color.colorPrimaryDark);
         initView();
@@ -79,7 +81,6 @@ public class MainActivity extends BaseCompatActivity
                 }
             }
         });
-
     }
 
 

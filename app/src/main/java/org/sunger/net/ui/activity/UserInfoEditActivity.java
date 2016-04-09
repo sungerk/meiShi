@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import org.sunger.net.ui.fragmet.UserInfoEditFragment;
 
 import sunger.org.demo.R;
@@ -19,6 +21,7 @@ public class UserInfoEditActivity extends BaseCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(this);
         setContentView(R.layout.activity_user_info_edit);
         setStateBarColor(R.color.colorPrimaryDark);
         setUpCommonBackTooblBar(R.id.tool_bar, R.string.title_edit_user_info);

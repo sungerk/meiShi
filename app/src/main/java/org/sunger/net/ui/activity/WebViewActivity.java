@@ -17,6 +17,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import org.sunger.net.utils.ResourcesUtils;
 
 import sunger.org.demo.R;
@@ -41,6 +43,7 @@ public class WebViewActivity extends BaseCompatActivity implements SwipeRefreshL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(this);
         setContentView(R.layout.activity_webview);
         setStateBarColor(R.color.colorPrimaryDark);
         initToolBar();

@@ -4,11 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import org.sunger.net.entity.MediaEntity;
 import org.sunger.net.presenter.HomeMediasPresenter;
 import org.sunger.net.presenter.impl.HomeMediasPresenterImpl;
-import org.sunger.net.support.recyclerview.MGridLayoutManager;
 import org.sunger.net.ui.activity.MainActivity;
 import org.sunger.net.ui.activity.VideoPlayActivity;
 import org.sunger.net.ui.adapter.MediasAdapter;
@@ -68,12 +68,13 @@ public class HomeMediasFragment extends RefreshAndLoadFragment implements HomeMe
         mPresenter = new HomeMediasPresenterImpl(this);
         mRecyclerView = getRecyclerView();
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MediasAdapter(getActivity());
+        mAdapter = new MediasAdapter();
         setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(this);
         mAdapter.setHasMoreData(true);
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new MGridLayoutManager(getActivity(), GRID_COLUMN, mAdapter));
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        //mRecyclerView.setLayoutManager(new MGridLayoutManager(getActivity(), GRID_COLUMN, mAdapter));
         autoRefresh();
     }
 

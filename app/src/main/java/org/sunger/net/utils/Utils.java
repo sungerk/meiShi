@@ -15,7 +15,6 @@ public class Utils {
                 new int[]{R.attr.actionBarSize});
         int toolbarHeight = (int) styledAttributes.getDimension(0, 0);
         styledAttributes.recycle();
-
         return toolbarHeight;
     }
 

@@ -39,7 +39,7 @@ public class FriendshipsFragment extends LoadMoreRecyclerFragemnt implements Fri
         mRecyclerView = getRecyclerView();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new FriendshipsAdapter(getActivity());
+        mAdapter = new FriendshipsAdapter();
         mAdapter.setHasMoreData(true);
         mRecyclerView.setAdapter(mAdapter);
         setAdapter(mAdapter);

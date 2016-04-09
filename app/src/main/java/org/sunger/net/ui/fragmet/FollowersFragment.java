@@ -39,7 +39,7 @@ public class FollowersFragment extends LoadMoreRecyclerFragemnt implements Follo
         mRecyclerView = getRecyclerView();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mAdapter = new FollowsAdapter(getActivity());
+        mAdapter = new FollowsAdapter();
         mAdapter.setHasMoreData(true);
         mRecyclerView.setAdapter(mAdapter);
         setAdapter(mAdapter);

@@ -1,4 +1,4 @@
-package org.sunger.net.app;
+package org.sunger.net.config;
 
 /**
  * Created by sunger on 2015/10/27.
@@ -11,7 +11,6 @@ public class AppConstants {
         public final static String VIDEO_LIST = "/channels/feed_timeline.json";
         public final static String HOT_VIDEO_LIST = "/hot/feed_timeline.json";
         public final static String MEDIAS = "/medias/show.json";
-
         public final static String LIKES_VIDEO_CREATE = "/likes/create.json";
         public final static String LIKES_VIDEO_DESTORY = "/likes/destroy.json";
 

@@ -2,7 +2,7 @@ package org.sunger.net.api;
 
 import android.text.TextUtils;
 
-import org.sunger.net.app.AppConstants;
+import org.sunger.net.config.AppConstants;
 import org.sunger.net.utils.DeviceUtils;
 
 import java.util.HashMap;

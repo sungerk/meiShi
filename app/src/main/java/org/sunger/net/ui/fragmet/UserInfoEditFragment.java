@@ -16,8 +16,6 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.provider.MediaStore;
 import android.view.View;
 
-import com.bumptech.glide.BitmapTypeRequest;
-import com.bumptech.glide.Glide;
 import com.soundcloud.android.crop.Crop;
 
 import org.sunger.net.app.App;
@@ -29,7 +27,6 @@ import org.sunger.net.ui.widget.MProgressDialog;
 import org.sunger.net.ui.widget.RadioGroupPreference;
 import org.sunger.net.utils.DrawableUtils;
 import org.sunger.net.utils.FileUtils;
-import org.sunger.net.utils.GlideUtils;
 import org.sunger.net.utils.SdcardUtils;
 import org.sunger.net.utils.TimeUtils;
 import org.sunger.net.utils.UriUtils;
@@ -106,8 +103,8 @@ public class UserInfoEditFragment extends BasePreferenceFragment implements OnPr
             }
         });
 
-        BitmapTypeRequest builder = Glide.with(this).load(entity.getAvatar()).asBitmap();
-        GlideUtils.loadCircleImage(builder, mPreferenceUserAvatar);
+//        BitmapTypeRequest builder = Glide.with(this).load(entity.getAvatar()).asBitmap();
+//        GlideUtils.loadCircleImage(builder, mPreferenceUserAvatar);
     }
 
     @Override

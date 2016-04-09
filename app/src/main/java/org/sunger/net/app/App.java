@@ -2,8 +2,10 @@ package org.sunger.net.app;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.squareup.okhttp.OkHttpClient;
 
+import org.sunger.net.config.ImagePipelineConfigFactory;
 import org.sunger.net.entity.OauthUserEntity;
 import org.sunger.net.support.okhttp.OkHttpClientManager;
 import org.sunger.net.utils.DeviceUtils;
@@ -25,7 +27,12 @@ public class App extends Application {
         super.onCreate();
         instance = this;
         initOkHttp();
+        initFresco();
         DeviceUtils.init(this);
+    }
+
+    private void initFresco() {
+        Fresco.initialize(this, ImagePipelineConfigFactory.getOkHttpImagePipelineConfig(this,okHttpClient));
     }
 
     private void initOkHttp() {

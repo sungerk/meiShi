@@ -1,20 +1,18 @@
 package org.sunger.net.app;
 
-import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.text.TextUtils;
-
-import com.bumptech.glide.BitmapTypeRequest;
-import com.bumptech.glide.Glide;
 
 import org.sunger.net.entity.MediaEntity;
 import org.sunger.net.entity.SimpleUserEntity;
 import org.sunger.net.entity.VideoItemEntity;
-import org.sunger.net.utils.GlideUtils;
+import org.sunger.net.ui.widget.AvatarView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bingoogolapple.badgeview.BGABadgeImageView;
 import sunger.org.demo.R;
 
 /**
@@ -23,22 +21,21 @@ import sunger.org.demo.R;
 public class AppUtils {
 
 
-    public static void loadBigUserAvata(Activity activity, SimpleUserEntity entity, BGABadgeImageView imageView) {
-        loadImage(activity, R.mipmap.ic_verified_account_24dp, entity, imageView);
+    public static void loadBigUserAvata(SimpleUserEntity entity, AvatarView imageView) {
+        loadImage(R.mipmap.ic_verified_account_24dp, entity, imageView);
     }
 
-    public static void loadSmallUserAvata(Activity activity, SimpleUserEntity entity, BGABadgeImageView imageView) {
-        loadImage(activity, R.mipmap.ic_verified_account_16dp, entity, imageView);
+    public static void loadSmallUserAvata(SimpleUserEntity entity, AvatarView imageView) {
+        loadImage(R.mipmap.ic_verified_account_16dp, entity, imageView);
     }
 
-    private static void loadImage(Activity activity, int v, SimpleUserEntity entity, BGABadgeImageView imageView) {
+    private static void loadImage(int vIcon, SimpleUserEntity entity, AvatarView imageView) {
         if (TextUtils.isEmpty(entity.getAvatar()))
             return;
-        BitmapTypeRequest builder = Glide.with(activity).load(entity.getAvatar()).asBitmap();
+        imageView.setImageURI(Uri.parse(entity.getAvatar()));
         if (entity.getVerified()) {
-            GlideUtils.loadBadgeImage(v, builder, imageView);
-        } else {
-            GlideUtils.loadCircleImage(builder, imageView);
+            Bitmap avatorBadgeBitmap = BitmapFactory.decodeResource(App.getInstance().getResources(), vIcon);
+            imageView.showDrawableBadge(avatorBadgeBitmap);
         }
     }
 

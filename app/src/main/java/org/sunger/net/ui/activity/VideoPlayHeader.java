@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 import org.sunger.net.app.AppUtils;
 import org.sunger.net.entity.MediaEntity;
+import org.sunger.net.ui.widget.AvatarView;
 import org.sunger.net.ui.widget.VideoControllerView;
 import org.sunger.net.utils.DateUtils;
 import org.sunger.net.widget.TextImageView;
 
-import cn.bingoogolapple.badgeview.BGABadgeImageView;
 import sunger.org.demo.R;
 
 /**
@@ -21,7 +21,7 @@ import sunger.org.demo.R;
  */
 public class VideoPlayHeader {
 
-    private BGABadgeImageView mBgaBadgeImageView;
+    private AvatarView mBgaBadgeImageView;
     private TextView mTextViewScreenName;
     private TextView mTextViewCreatedAt;
     private TextImageView mTextViewPlaysCount;
@@ -37,7 +37,7 @@ public class VideoPlayHeader {
 
     public VideoPlayHeader(Activity activity, View view) {
         this.mActivity = activity;
-        mBgaBadgeImageView = (BGABadgeImageView) view.findViewById(R.id.imageView_avatar);
+        mBgaBadgeImageView = (AvatarView) view.findViewById(R.id.imageView_avatar);
         mTextViewScreenName = (TextView) view.findViewById(R.id.textView_screen_name);
         mTextViewCreatedAt = (TextView) view.findViewById(R.id.textView_created_at);
         mTextViewPlaysCount = (TextImageView) view.findViewById(R.id.textView_plays_count);
@@ -52,7 +52,7 @@ public class VideoPlayHeader {
     }
 
     public void bindData(final MediaEntity mediaEntity) {
-        AppUtils.loadSmallUserAvata(mActivity, mediaEntity.getUser(), mBgaBadgeImageView);
+        AppUtils.loadSmallUserAvata( mediaEntity.getUser(), mBgaBadgeImageView);
         mTextViewScreenName.setText(mediaEntity.getUser().getScreen_name());
         mTextViewCreatedAt.setText(DateUtils.getDifference(mediaEntity.getCreated_at()));
         mTextViewPlaysCount.setTextImageStart(15, R.mipmap.ic_visibility_white_24dp, " " + mediaEntity.getPlays_count());

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     app:layout_collapseMode="parallax">
 
     <RelativeLayout
@@ -14,19 +15,21 @@
         android:background="?attr/colorPrimary"
         android:padding="5dp">
 
-        <cn.bingoogolapple.badgeview.BGABadgeImageView
+        <org.sunger.net.ui.widget.AvatarView
             android:id="@+id/imageView_avatar"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="50dp"
-            android:scaleType="fitXY"
-            android:src="@mipmap/ic_account_circle_48dp"
+            android:layout_alignParentTop="true"
             app:badge_gravity="rightBottom"
             app:badge_horizontalMargin="0dp"
-            app:badge_verticalMargin="0dp" />
+            app:badge_verticalMargin="0dp"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:fadeDuration="300"
+            fresco:placeholderImage="@mipmap/ic_account_circle_gray_48dp"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:roundedCornerRadius="50dp"/>
 
         <TextView
             android:id="@+id/textView_screen_name"
